@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* ============================== */
-        /* Estilos Generales - Paleta Vinotinto Dominante & Beige */
+        /* Estilos Generales - Paleta Beige Dominante & Vinotinto */
         /* ============================== */
         * {
             box-sizing: border-box;
@@ -18,8 +18,8 @@
         }
 
         body {
-            background: radial-gradient(circle at center, #1c0609 0%, #070001 100%);
-            color: #f5f5dc; /* Beige claro para máxima nitidez */
+            background: radial-gradient(circle at center, #fbf9f5 0%, #ebdcc9 100%);
+            color: #4a0a11; /* Vinotinto profundo para máxima legibilidad */
             overflow-x: hidden;
             min-height: 100vh;
         }
@@ -28,11 +28,11 @@
         /* Encabezado (Header) */
         /* ============================== */
         header {
-            background: linear-gradient(180deg, #050001 0%, #150204 100%);
+            background: linear-gradient(180deg, #f5f0e6 0%, #ebdcc9 100%);
             padding: 30px 20px;
             text-align: center;
-            border-bottom: 2px solid #4a0e17; /* Borde inferior Vinotinto */
-            box-shadow: 0 4px 25px rgba(0,0,0,0.8);
+            border-bottom: 2px solid #7a121e; /* Borde inferior Vinotinto */
+            box-shadow: 0 6px 30px rgba(92, 11, 20, 0.08); /* Sombra suave vinotinto */
             position: relative;
             z-index: 900;
         }
@@ -42,9 +42,9 @@
             font-size: 2.8rem;
             letter-spacing: 5px;
             font-weight: 800;
-            color: #f5f5dc; /* Beige */
+            color: #5c0b14; /* Vinotinto */
             text-transform: uppercase;
-            text-shadow: 0 2px 15px rgba(110, 28, 40, 0.4);
+            text-shadow: 0 4px 15px rgba(92, 11, 20, 0.15); /* Sombra de texto */
         }
 
         /* ============================== */
@@ -58,9 +58,9 @@
 
         /* Botón disparador del menú */
         .btn-dropdown-trigger {
-            background: #050001; /* Fondo negro puro */
-            color: #f5f5dc; /* Beige */
-            border: 1px solid #4a0e17; /* Borde Vinotinto */
+            background: #fdfbf7; /* Fondo beige claro */
+            color: #5c0b14; /* Vinotinto */
+            border: 1px solid #7a121e; /* Borde Vinotinto */
             padding: 14px 20px;
             font-size: 0.9rem;
             font-weight: 700;
@@ -74,18 +74,19 @@
             align-items: center;
             justify-content: space-between;
             outline: none;
+            box-shadow: 0 4px 12px rgba(92, 11, 20, 0.05);
         }
 
         .btn-dropdown-trigger:hover,
         .btn-dropdown-trigger.abierto {
-            border-color: #a31d31;
-            background-color: #150204;
-            box-shadow: 0 4px 15px rgba(163, 29, 49, 0.3);
+            border-color: #5c0b14;
+            background-color: #ebdcc9;
+            box-shadow: 0 6px 18px rgba(92, 11, 20, 0.15);
         }
 
         .btn-dropdown-trigger i {
             transition: transform 0.3s ease;
-            color: #a31d31;
+            color: #7a121e;
         }
 
         .btn-dropdown-trigger.abierto i {
@@ -98,10 +99,10 @@
             top: calc(100% + 8px);
             left: 0;
             width: 100%;
-            background: #050001;
-            border: 1px solid #4a0e17;
+            background: #fdfbf7;
+            border: 1px solid #7a121e;
             border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 10px 30px rgba(92, 11, 20, 0.12);
             display: none;
             flex-direction: column;
             overflow: hidden;
@@ -114,9 +115,9 @@
 
         .btn-categoria {
             background: transparent;
-            color: #d4c5b9;
+            color: #7a121e;
             border: none;
-            border-bottom: 1px solid rgba(74, 14, 23, 0.4);
+            border-bottom: 1px solid rgba(122, 18, 30, 0.15);
             padding: 14px 20px;
             font-size: 0.85rem;
             font-weight: 600;
@@ -133,14 +134,14 @@
         }
 
         .btn-categoria:hover {
-            background-color: #150204;
-            color: #f5f5dc;
+            background-color: #f5f0e6;
+            color: #5c0b14;
             padding-left: 25px; /* Efecto sutil de desplazamiento */
         }
 
         .btn-categoria.activo {
-            background: linear-gradient(135deg, #a31d31 0%, #6e1c28 100%);
-            color: #f5f5dc;
+            background: linear-gradient(135deg, #7a121e 0%, #5c0b14 100%);
+            color: #fdfbf7; /* Texto claro para contraste */
             font-weight: 800;
         }
 
@@ -148,28 +149,29 @@
         /* Sección de Información Principal (Inicio) */
         /* ============================== */
         .info-principal-container {
-            background: linear-gradient(135deg, #1c0609 0%, #0a0102 100%);
-            border: 1px solid #4a0e17; 
+            background: #fdfbf7;
+            border: 1px solid rgba(122, 18, 30, 0.2); 
             border-radius: 6px;
             padding: 40px;
             margin-bottom: 30px;
             display: block;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 35px rgba(92, 11, 20, 0.06);
         }
 
         .info-principal-container h2 {
             font-size: 2rem;
-            color: #f5f5dc; 
+            color: #5c0b14; 
             margin-bottom: 25px;
             text-transform: uppercase;
             letter-spacing: 3px;
-            border-bottom: 2px solid #4a0e17; 
+            border-bottom: 2px solid #7a121e; 
             padding-bottom: 15px;
+            text-shadow: 0 2px 5px rgba(92, 11, 20, 0.05);
         }
 
         .info-principal-container p {
             font-size: 1.05rem;
-            color: #d4c5b9; 
+            color: #4a0a11; 
             line-height: 1.8;
             margin-bottom: 20px;
         }
@@ -177,12 +179,12 @@
         .redes-container {
             margin-top: 25px;
             padding-top: 25px;
-            border-top: 1px solid #4a0e17;
+            border-top: 1px solid rgba(122, 18, 30, 0.2);
         }
 
         .redes-container h3 {
             font-size: 1.1rem;
-            color: #f5f5dc; 
+            color: #5c0b14; 
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 15px;
@@ -198,9 +200,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #050001;
-            color: #f5f5dc; 
-            border: 1px solid #4a0e17;
+            background: #fdfbf7;
+            color: #5c0b14; 
+            border: 1px solid #7a121e;
             padding: 12px 24px;
             font-size: 0.9rem;
             font-weight: 600;
@@ -210,14 +212,15 @@
             border-radius: 4px;
             transition: all 0.3s ease;
             gap: 10px;
+            box-shadow: 0 4px 10px rgba(92, 11, 20, 0.05);
         }
 
         .btn-red-social:hover {
-            background: linear-gradient(135deg, #a31d31 0%, #6e1c28 100%);
-            color: #f5f5dc; 
-            border-color: #a31d31;
+            background: linear-gradient(135deg, #7a121e 0%, #5c0b14 100%);
+            color: #fdfbf7; 
+            border-color: #5c0b14;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(163, 29, 49, 0.4);
+            box-shadow: 0 8px 20px rgba(92, 11, 20, 0.18);
         }
 
         /* ============================== */
@@ -236,29 +239,31 @@
         }
 
         .producto-card {
-            background: linear-gradient(135deg, #150204 0%, #050001 100%);
+            background: #fdfbf7;
             border-radius: 6px;
             overflow: hidden;
-            border: 1px solid #4a0e17; 
+            border: 1px solid rgba(122, 18, 30, 0.2); 
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 8px 25px rgba(92, 11, 20, 0.05);
         }
 
         .producto-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(163, 29, 49, 0.2);
-            border-color: #a31d31; 
+            box-shadow: 0 15px 35px rgba(92, 11, 20, 0.12);
+            border-color: #7a121e; 
         }
 
         .producto-imagen {
             width: 100%;
             height: 350px;
-            background: radial-gradient(circle, #2b050b 0%, #050001 100%);
+            background: radial-gradient(circle, #fcfbf9 0%, #f5f0e6 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            border-bottom: 1px solid rgba(122, 18, 30, 0.1);
         }
 
         .producto-imagen img {
@@ -283,12 +288,12 @@
         .producto-titulo {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #f5f5dc; 
+            color: #5c0b14; 
         }
 
         .producto-precio {
             font-size: 1.3rem;
-            color: #a31d31; 
+            color: #7a121e; 
             font-weight: 800;
             margin-bottom: 5px;
         }
@@ -305,16 +310,16 @@
 
         .selector-talla-container label {
             font-size: 0.75rem;
-            color: #d4c5b9; 
+            color: #7a121e; 
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 0.5px;
         }
 
         .select-talla {
-            background: #050001;
-            color: #f5f5dc; 
-            border: 1px solid #4a0e17;
+            background: #fdfbf7;
+            color: #4a0a11; 
+            border: 1px solid rgba(122, 18, 30, 0.3);
             padding: 10px;
             border-radius: 4px;
             font-size: 0.9rem;
@@ -326,8 +331,8 @@
         }
 
         .select-talla:focus {
-            border-color: #a31d31;
-            background-color: #150204;
+            border-color: #7a121e;
+            background-color: #f5f0e6;
         }
 
         .acciones-producto {
@@ -338,21 +343,21 @@
         }
 
         .selector-cantidad-previo {
-            flex: 1;
-            height: 45px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            background: #050001;
-            border: 1px solid #4a0e17;
+            background: #fdfbf7;
+            border: 1px solid rgba(122, 18, 30, 0.3);
             border-radius: 4px;
             overflow: hidden;
             align-items: center;
+            height: 45px;
+            flex: 1;
         }
 
         .selector-cantidad-previo button {
             background: none;
             border: none;
-            color: #f5f5dc; 
+            color: #7a121e; 
             font-size: 1.1rem;
             font-weight: bold;
             height: 100%;
@@ -361,12 +366,12 @@
         }
 
         .selector-cantidad-previo button:hover {
-            background: rgba(163, 29, 49, 0.2);
-            color: #ffffff;
+            background: rgba(122, 18, 30, 0.1);
+            color: #5c0b14;
         }
 
         .selector-cantidad-previo .valor-cantidad {
-            color: #f5f5dc; 
+            color: #5c0b14; 
             text-align: center;
             font-weight: 700;
             font-size: 1rem;
@@ -375,9 +380,9 @@
         .btn-anadir-carrito {
             flex: 1.5;
             height: 45px;
-            background: linear-gradient(135deg, #a31d31 0%, #6e1c28 100%);
-            color: #f5f5dc; 
-            border: 1px solid #a31d31;
+            background: linear-gradient(135deg, #7a121e 0%, #5c0b14 100%);
+            color: #fdfbf7; 
+            border: 1px solid #7a121e;
             font-weight: 800;
             cursor: pointer;
             border-radius: 4px;
@@ -389,12 +394,13 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
+            box-shadow: 0 4px 12px rgba(92, 11, 20, 0.15);
         }
 
         .btn-anadir-carrito:hover {
-            background: linear-gradient(135deg, #6e1c28 0%, #4a0e17 100%);
-            border-color: #6e1c28;
-            box-shadow: 0 4px 15px rgba(163, 29, 49, 0.4);
+            background: linear-gradient(135deg, #5c0b14 0%, #4a0a11 100%);
+            border-color: #5c0b14;
+            box-shadow: 0 6px 18px rgba(92, 11, 20, 0.25);
         }
 
         /* ============================== */
@@ -405,15 +411,15 @@
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            background: linear-gradient(135deg, #a31d31 0%, #6e1c28 100%);
-            color: #f5f5dc; 
+            background: linear-gradient(135deg, #7a121e 0%, #5c0b14 100%);
+            color: #fdfbf7; 
             padding: 18px 14px;
             border-radius: 8px 0 0 8px;
-            border: 1px solid #a31d31;
+            border: 1px solid #7a121e;
             border-right: none;
             cursor: pointer;
             z-index: 999;
-            box-shadow: -4px 0 25px rgba(0,0,0,0.8);
+            box-shadow: -4px 0 25px rgba(92, 11, 20, 0.2);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -423,7 +429,7 @@
 
         .btn-carrito-flotante:hover {
             padding-right: 22px;
-            background: linear-gradient(135deg, #6e1c28 0%, #4a0e17 100%);
+            background: linear-gradient(135deg, #5c0b14 0%, #4a0a11 100%);
         }
 
         .btn-carrito-flotante i {
@@ -431,15 +437,15 @@
         }
 
         .contador-carrito {
-            background: #f5f5dc; 
-            color: #050001;
+            background: #fdfbf7; 
+            color: #5c0b14;
             font-size: 0.75rem;
             font-weight: bold;
             padding: 3px 7px;
             border-radius: 10px;
             min-width: 20px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(245, 245, 220, 0.3);
+            box-shadow: 0 2px 8px rgba(92, 11, 20, 0.15);
         }
 
         /* ============================== */
@@ -452,9 +458,9 @@
             width: 380px;
             max-width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, #150204 0%, #050001 100%);
-            border-left: 2px solid #4a0e17; 
-            box-shadow: -10px 0 40px rgba(0,0,0,0.9);
+            background: linear-gradient(180deg, #fdfbf7 0%, #f5f0e6 100%);
+            border-left: 2px solid #7a121e; 
+            box-shadow: -10px 0 40px rgba(92, 11, 20, 0.12);
             z-index: 1000;
             transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
@@ -470,14 +476,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #4a0e17;
+            border-bottom: 1px solid rgba(122, 18, 30, 0.2);
             padding-bottom: 15px;
             margin-bottom: 20px;
         }
 
         .panel-carrito-header h2 {
             font-size: 1.2rem;
-            color: #f5f5dc; 
+            color: #5c0b14; 
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -485,14 +491,14 @@
         .btn-cerrar-panel {
             background: none;
             border: none;
-            color: #d4c5b9; 
+            color: #7a121e; 
             font-size: 1.5rem;
             cursor: pointer;
             transition: color 0.2s;
         }
 
         .btn-cerrar-panel:hover {
-            color: #f5f5dc; 
+            color: #5c0b14; 
         }
 
         .lista-carrito {
@@ -509,21 +515,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #050001;
+            background: #fdfbf7;
             padding: 12px;
-            border: 1px solid #4a0e17;
+            border: 1px solid rgba(122, 18, 30, 0.15);
             border-radius: 4px;
             font-size: 0.85rem;
+            box-shadow: 0 2px 8px rgba(92, 11, 20, 0.03);
         }
 
         .item-carrito-info {
             display: flex;
             flex-direction: column;
             gap: 2px;
+            color: #4a0a11;
         }
 
         .item-carrito-talla {
-            color: #a31d31;
+            color: #7a121e;
             font-size: 0.8rem;
             font-weight: 700;
         }
@@ -531,7 +539,7 @@
         .btn-eliminar-item {
             background: none;
             border: none;
-            color: #d4c5b9; 
+            color: #7a121e; 
             cursor: pointer;
             font-size: 1rem;
             padding: 5px;
@@ -540,11 +548,11 @@
 
         .btn-eliminar-item:hover {
             transform: scale(1.15);
-            color: #a31d31;
+            color: #5c0b14;
         }
 
         .carrito-vacio-txt {
-            color: #d4c5b9; 
+            color: #7a121e; 
             text-align: center;
             font-size: 0.9rem;
             padding: 40px 0;
@@ -553,10 +561,10 @@
         .total-carrito {
             font-size: 1.1rem;
             font-weight: 700;
-            color: #f5f5dc; 
+            color: #5c0b14; 
             display: flex;
             justify-content: space-between;
-            border-top: 1px solid #4a0e17;
+            border-top: 1px solid rgba(122, 18, 30, 0.2);
             padding-top: 15px;
             margin-bottom: 15px;
         }
@@ -565,12 +573,13 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            border-top: 1px solid #4a0e17;
+            border-top: 1px solid rgba(122, 18, 30, 0.2);
             padding-top: 15px;
-            background: #050001;
+            background: #fdfbf7;
             padding: 15px;
             border-radius: 4px;
-            border: 1px solid #4a0e17;
+            border: 1px solid rgba(122, 18, 30, 0.15);
+            box-shadow: 0 4px 12px rgba(92, 11, 20, 0.03);
         }
 
         .grupo-campo {
@@ -581,16 +590,16 @@
 
         .grupo-campo label {
             font-size: 0.75rem;
-            color: #d4c5b9; 
+            color: #7a121e; 
             text-transform: uppercase;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
 
         .grupo-campo input {
-            background-color: #050001;
-            border: 1px solid #4a0e17;
-            color: #f5f5dc; 
+            background-color: #fdfbf7;
+            border: 1px solid rgba(122, 18, 30, 0.25);
+            color: #4a0a11; 
             padding: 10px;
             font-size: 0.9rem;
             border-radius: 4px;
@@ -599,8 +608,8 @@
 
         .grupo-campo input:focus {
             outline: none;
-            border-color: #a31d31;
-            background-color: #100102;
+            border-color: #5c0b14;
+            background-color: #f5f0e6;
         }
 
         .btn-finalizar-pedido {
@@ -620,13 +629,13 @@
             gap: 8px;
             margin-top: 5px;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(37,211,102,0.25);
+            box-shadow: 0 4px 15px rgba(37,211,102,0.2);
             transition: all 0.3s ease;
         }
 
         .btn-finalizar-pedido:hover {
             background: linear-gradient(135deg, #20ba5a 0%, #1a9f49 100%);
-            box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+            box-shadow: 0 6px 20px rgba(37,211,102,0.3);
             transform: translateY(-1px);
         }
 
@@ -636,7 +645,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(5, 0, 1, 0.85); 
+            background-color: rgba(92, 11, 20, 0.2); /* Sombra vinotinto translúcida */
             z-index: 998;
             display: none;
             backdrop-filter: blur(3px);
@@ -645,11 +654,12 @@
         footer {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(180deg, #050001 0%, #000000 100%);
-            color: #d4c5b9; 
+            background: linear-gradient(180deg, #ebdcc9 0%, #dfcfb9 100%);
+            color: #7a121e; 
             margin-top: 80px;
-            border-top: 2px solid #4a0e17;
+            border-top: 2px solid #7a121e;
             font-size: 0.9rem;
+            box-shadow: 0 -6px 30px rgba(92, 11, 20, 0.04);
         }
     </style>
 </head>
@@ -724,7 +734,7 @@
                 <p>¿Cómo comprar?: Renovar tu armario con el estilo único de Velvetby_MD es rápido y sencillo. En nuestra plataforma web tú tienes el control absoluto de tu estilo: explora las colecciones, ajusta las unidades deseadas y procesa tu orden directa en solo unos clics. Nosotros nos encargamos de preparar tus prendas para que te lleguen listas para romper el molde. ¡Haz tu pedido hoy y marca la diferencia!</p>
 
                 <div class="redes-container">
-                    <h3>Siguenos por nuestras redes sociales</h3>
+                    <h3>Síguenos por nuestras redes sociales</h3>
                     <div class="redes-flex">
                         <a href="https://instagram.com/velvetby_md" target="_blank" class="btn-red-social"><i class="fab fa-instagram"></i> Instagram</a>
                         <a href="https://wa.me/584124785579" target="_blank" class="btn-red-social"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -739,10 +749,10 @@
                 <!-- Producto 1 (Tops) -->
                 <div class="producto-card" data-id="p1" data-categoria="tops">
                     <div class="producto-imagen">
-                        <img src="imagenes/oversize-basica.png" alt="Proximamente">
+                        <img src="imagenes/oversize-basica.png" alt="Próximamente">
                     </div>
                     <div class="producto-info">
-                        <p class="producto-titulo">Proximamente</p>
+                        <p class="producto-titulo">Próximamente</p>
                         <p class="producto-precio">$12.00</p>
                         
                         <div class="selector-talla-container">
@@ -763,7 +773,7 @@
                                 <button onclick="modificarContadorPrevio('p1', 1)">+</button>
                             </div>
 
-                            <button class="btn-anadir-carrito" onclick="procesarAlCarrito('p1', 'Proximamente', 12.00)">
+                            <button class="btn-anadir-carrito" onclick="procesarAlCarrito('p1', 'Próximamente', 12.00)">
                                 <i class="fas fa-plus"></i> Añadir
                             </button>
                         </div>
@@ -774,10 +784,10 @@
                 <!-- Producto 2 (Tops) -->
                 <div class="producto-card" data-id="p2" data-categoria="tops">
                     <div class="producto-imagen">
-                        <img src="imagenes/tank-acidwash.png" alt="Proximamente">
+                        <img src="imagenes/tank-acidwash.png" alt="Próximamente">
                     </div>
                     <div class="producto-info">
-                        <p class="producto-titulo">Proximamente</p>
+                        <p class="producto-titulo">Próximamente</p>
                         <p class="producto-precio">$15.00</p>
                         
                         <div class="selector-talla-container">
@@ -798,7 +808,7 @@
                                 <button onclick="modificarContadorPrevio('p2', 1)">+</button>
                             </div>
 
-                            <button class="btn-anadir-carrito" onclick="procesarAlCarrito('p2', 'Proximamente', 15.00)">
+                            <button class="btn-anadir-carrito" onclick="procesarAlCarrito('p2', 'Próximamente', 15.00)">
                                 <i class="fas fa-plus"></i> Añadir
                             </button>
                         </div>
@@ -809,10 +819,10 @@
                 <!-- Producto 3 (Tops) -->
                 <div class="producto-card" data-id="p3" data-categoria="tops">
                     <div class="producto-imagen">
-                        <img src="imagenes/jean-slim-dark.jpg" alt="Proximamente">
+                        <img src="imagenes/jean-slim-dark.jpg" alt="Próximamente">
                     </div>
                     <div class="producto-info">
-                        <p class="producto-titulo">Proximamente</p>
+                        <p class="producto-titulo">Próximamente</p>
                         <p class="producto-precio">$20.00</p>
                         
                         <div class="selector-talla-container">
@@ -833,7 +843,7 @@
                                 <button onclick="modificarContadorPrevio('p3', 1)">+</button>
                             </div>
 
-                            <button class="btn-anadir-carrito" onclick="procesarAlCarrito('p3', 'Proximamente', 20.00)">
+                            <button class="btn-anadir-carrito" onclick="procesarAlCarrito('p3', 'Próximamente', 20.00)">
                                 <i class="fas fa-plus"></i> Añadir
                             </button>
                         </div>
@@ -893,166 +903,169 @@
             }
         }
 
+        // Filtrar categorías y controlar la vista de "Inicio" frente a los productos
         function filtrar(categoria, event) {
-            // Actualizar clase activa en las opciones del dropdown
-            const botones = document.querySelectorAll('.btn-categoria');
-            botones.forEach(btn => btn.classList.remove('activo'));
-            
-            if (event) {
-                event.currentTarget.classList.add('activo');
-                // Actualizar el texto del botón principal con el nombre seleccionado
-                categoriaActivaTexto.textContent = event.currentTarget.textContent;
-            }
-            
-            // Cerrar menú
+            // Cerrar menú desplegable al hacer click
             btnDropdownTrigger.classList.remove('abierto');
             dropdownMenu.classList.remove('visible');
 
+            // Actualizar texto del botón disparador
+            const botonClickeado = event.target;
+            categoriaActivaTexto.textContent = botonClickeado.textContent;
+
+            // Cambiar clase activa en los botones de categoría
+            document.querySelectorAll('.btn-categoria').forEach(btn => {
+                btn.classList.remove('activo');
+            });
+            botonClickeado.classList.add('activo');
+
+            // Lógica de visualización de secciones
             if (categoria === 'inicio') {
                 infoPrincipal.style.display = 'block';
                 tiendaContainer.style.display = 'none';
             } else {
                 infoPrincipal.style.display = 'none';
                 tiendaContainer.style.display = 'grid';
-                
+
+                // Filtrar las tarjetas de producto físicamente en el DOM
                 const productos = document.querySelectorAll('.producto-card');
-                productos.forEach(p => {
-                    const cat = p.getAttribute('data-categoria');
-                    p.style.display = (categoria === 'todos' || cat === categoria) ? 'flex' : 'none';
+                productos.forEach(producto => {
+                    const catProducto = producto.getAttribute('data-categoria');
+                    if (categoria === 'todos' || catProducto === categoria) {
+                        producto.style.display = 'flex';
+                    } else {
+                        producto.style.display = 'none';
+                    }
                 });
             }
         }
 
-        function modificarContadorPrevio(id, cambio) {
-            const txtCant = document.getElementById(`cant-previo-${id}`);
-            if (!txtCant) return;
-
-            let cantidadActual = parseInt(txtCant.textContent);
+        // Modificar cantidad en la tarjeta del producto antes de añadirlo
+        function modificarContadorPrevio(idProducto, cambio) {
+            const spanCant = document.getElementById(`cant-previo-${idProducto}`);
+            let cantidadActual = parseInt(spanCant.textContent);
             cantidadActual += cambio;
-
-            if (cantidadActual < 1) cantidadActual = 1;
-            txtCant.textContent = cantidadActual;
+            
+            if (cantidadActual < 1) cantidadActual = 1; // Mínimo 1 elemento
+            spanCant.textContent = cantidadActual;
         }
 
-        function procesarAlCarrito(id, ExtNombre, precio) {
-            const txtCant = document.getElementById(`cant-previo-${id}`);
-            const selectTalla = document.getElementById(`talla-${id}`);
-            
-            const unidadesAAnadir = txtCant ? parseInt(txtCant.textContent) : 1;
-            const tallaSeleccionada = selectTalla ? selectTalla.value : 'M';
+        // Procesar y añadir un producto seleccionado al carrito de compras
+        function procesarAlCarrito(idProducto, titulo, precio) {
+            const talla = document.getElementById(`talla-${idProducto}`).value;
+            const cantidad = parseInt(document.getElementById(`cant-previo-${idProducto}`).textContent);
 
-            const itemExistente = carrito.find(item => item.id === id && item.talla === tallaSeleccionada);
+            // Verificar si el producto con esa misma talla ya existe en el carrito
+            const itemExistente = carrito.find(item => item.id === idProducto && item.talla === talla);
 
             if (itemExistente) {
-                itemExistente.cantidad += unidadesAAnadir;
+                itemExistente.cantidad += cantidad;
             } else {
-                carrito.push({ 
-                    id: id, 
-                    nombre: ExtNombre, 
-                    precio: precio, 
-                    cantidad: unidadesAAnadir,
-                    talla: tallaSeleccionada 
+                carrito.push({
+                    id: idProducto,
+                    titulo: titulo,
+                    precio: precio,
+                    talla: talla,
+                    cantidad: cantidad
                 });
             }
 
-            if(txtCant) txtCant.textContent = 1;
+            // Resetear el contador previo del producto a 1
+            document.getElementById(`cant-previo-${idProducto}`).textContent = '1';
 
-            actualizarInterfazCarrito();
-            togglePanelCarrito(true);
+            actualizarCarritoUI();
+            togglePanelCarrito(true); // Abre el carrito para que el usuario vea que se añadió
         }
 
-        function eliminarDelCarrito(id, talla) {
-            carrito = carrito.filter(item => !(item.id === id && item.talla === talla));
-            actualizarInterfazCarrito();
+        // Eliminar un producto del carrito
+        function eliminarDelCarrito(idProducto, talla) {
+            carrito = carrito.filter(item => !(item.id === idProducto && item.talla === talla));
+            actualizarCarritoUI();
         }
 
-        function actualizarInterfazCarrito() {
+        // Actualizar los elementos visuales del carrito de compras
+        function actualizarCarritoUI() {
             const listaCarrito = document.getElementById('listaCarrito');
             const totalMonto = document.getElementById('totalMonto');
             const contadorCarrito = document.getElementById('contadorCarrito');
-            
-            listaCarrito.innerHTML = "";
 
-            let totalUnidades = carrito.reduce((acum, item) => acum + item.cantidad, 0);
-            contadorCarrito.textContent = totalUnidades;
+            // Limpiar lista visual
+            listaCarrito.innerHTML = '';
+
+            let total = 0;
+            let totalUnidades = 0;
 
             if (carrito.length === 0) {
-                listaCarrito.innerHTML = `<p class="carrito-vacio-txt">Tu carrito está vacío.</p>`;
-                totalMonto.textContent = "$0.00";
+                listaCarrito.innerHTML = '<p class="carrito-vacio-txt">Tu carrito está vacío.</p>';
+            } else {
+                carrito.forEach(item => {
+                    const subtotal = item.precio * item.cantidad;
+                    total += subtotal;
+                    totalUnidades += item.cantidad;
+
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item-carrito';
+                    itemDiv.innerHTML = `
+                        <div class="item-carrito-info">
+                            <strong>${item.titulo}</strong>
+                            <span class="item-carrito-talla">Talla: ${item.talla} (x${item.cantidad})</span>
+                            <span>$${subtotal.toFixed(2)}</span>
+                        </div>
+                        <button class="btn-eliminar-item" onclick="eliminarDelCarrito('${item.id}', '${item.talla}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    `;
+                    listaCarrito.appendChild(itemDiv);
+                });
+            }
+
+            // Actualizar montos y contador circular
+            totalMonto.textContent = `$${total.toFixed(2)}`;
+            contadorCarrito.textContent = totalUnidades;
+        }
+
+        // Generar el mensaje y redirigir a WhatsApp
+        function enviarCarritoWhatsApp() {
+            if (carrito.length === 0) {
+                alert('Tu carrito está vacío. Añade algunos productos antes de finalizar.');
                 return;
             }
 
-            let totalAcumulado = 0;
-
-            carrito.forEach(item => {
-                const subtotal = item.precio * item.cantidad;
-                totalAcumulado += subtotal;
-
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'item-carrito';
-                itemDiv.innerHTML = `
-                    <div class="item-carrito-info">
-                        <span style="font-weight: 700; color: #f5f5dc;">${item.nombre}</span>
-                        <span class="item-carrito-talla">Talla: ${item.talla}</span>
-                        <span style="color: #d4c5b9;">${item.cantidad}x - $${item.precio.toFixed(2)}</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <span style="font-weight: 700; color: #f5f5dc;">$${subtotal.toFixed(2)}</span>
-                        <button class="btn-eliminar-item" onclick="eliminarDelCarrito('${item.id}', '${item.talla}')">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                `;
-                listaCarrito.appendChild(itemDiv);
-            });
-
-            totalMonto.textContent = `$${totalAcumulado.toFixed(2)}`;
-        }
-
-        function enviarCarritoWhatsApp() {
             const nombre = document.getElementById('checkNombre').value.trim();
             const cedula = document.getElementById('checkCedula').value.trim();
 
             if (!nombre || !cedula) {
-                alert("Por favor, rellena tu Nombre y Cédula para procesar el pedido.");
+                alert('Por favor, rellena tu Nombre y Cédula de Identidad.');
                 return;
             }
 
-            if (carrito.length === 0) {
-                alert("Tu carrito está vacío.");
-                return;
-            }
-
+            // Guardar datos en LocalStorage para futuras visitas
             localStorage.setItem('nombreUsuario', nombre);
             localStorage.setItem('cedulaUsuario', cedula);
 
-            let mensaje = `*🔥 NUEVO PEDIDO - Velvetby_MD 🔥*\n\n`;
-            mensaje += `👤 *Cliente:* ${nombre}\n`;
-            mensaje += `🪪 *Cédula:* ${cedula}\n`;
-            mensaje += `---------------------------------------\n\n`;
+            // Construir el mensaje de WhatsApp
+            let mensaje = `*Pedido Velvetby_MD*\n\n`;
+            mensaje += `*Cliente:* ${nombre}\n`;
+            mensaje += `*Cédula:* ${cedula}\n`;
+            mensaje += `-----------------------------------\n`;
 
             let total = 0;
             carrito.forEach(item => {
                 const subtotal = item.precio * item.cantidad;
                 total += subtotal;
-                mensaje += `📦 *${item.nombre}*\n`;
-                mensaje += `   • Talla: ${item.talla}\n`;
-                mensaje += `   • Cantidad: ${item.cantidad}\n`;
-                mensaje += `   • Subtotal: $${subtotal.toFixed(2)}\n\n`;
+                mensaje += `• ${item.titulo} [Talla: ${item.talla}] x${item.cantidad} - $${subtotal.toFixed(2)}\n`;
             });
 
-            mensaje += `---------------------------------------\n`;
-            mensaje += `💰 *TOTAL A PAGAR:* $${total.toFixed(2)}\n\n`;
-            mensaje += `💬 _¡Quedo atento a los datos de pago para procesar mi orden!_`;
+            mensaje += `-----------------------------------\n`;
+            mensaje += `*Total a Pagar:* $${total.toFixed(2)}\n\n`;
+            mensaje += `Quedo atento para coordinar el pago y la entrega.`;
 
-            const mensajeCodificado = encodeURIComponent(mensaje);
-            const numeroWhatsApp = "584124785579"; 
+            // Encodificar mensaje para la URL
+            const mensajeUrl = encodeURIComponent(mensaje);
+            const telefono = "584124785579"; 
             
-            window.open(`https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`, '_blank');
-
-            carrito = [];
-            actualizarInterfazCarrito();
-            togglePanelCarrito(false);
+            // Redirigir al usuario
+            window.open(`https://wa.me/${telefono}?text=${mensajeUrl}`, '_blank');
         }
     </script>
 </body>
