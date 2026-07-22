@@ -331,6 +331,21 @@
             border-color: #a31d31;
         }
 
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-container input {
+            cursor: pointer;
+            accent-color: #a31d31;
+            width: 16px;
+            height: 16px;
+        }
+
         .btn-guardar-producto {
             background: linear-gradient(135deg, #a31d31 0%, #6e1c28 100%);
             color: #f5f5dc;
@@ -425,7 +440,7 @@
         }
 
         /* ============================== */
-        /* Layout Principal */
+        /* Layout Principal & Tarjetas */
         /* ============================== */
         .layout-principal {
             max-width: 1400px;
@@ -456,25 +471,61 @@
             border-color: #a31d31; 
         }
 
-        .btn-eliminar-prod-admin {
+        /* Acciones Admin en Tarjeta */
+        .admin-acciones-card {
             position: absolute;
             top: 10px;
             right: 10px;
-            background: rgba(163, 29, 49, 0.9);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
             display: none;
-            align-items: center;
-            justify-content: center;
+            gap: 5px;
             z-index: 10;
         }
 
-        .admin-panel-container.activo ~ .tienda-container .btn-eliminar-prod-admin {
+        .admin-panel-container.activo ~ .tienda-container .admin-acciones-card {
             display: flex;
+        }
+
+        .btn-admin-card {
+            border: none;
+            border-radius: 4px;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-eliminar-prod-admin {
+            background: rgba(163, 29, 49, 0.9);
+        }
+
+        .btn-toggle-stock-admin {
+            background: rgba(40, 40, 40, 0.9);
+            border: 1px solid #4a0e17;
+        }
+
+        /* Estilos Producto Agotado */
+        .producto-card.agotado .producto-imagen img {
+            filter: grayscale(80%) opacity(0.5);
+        }
+
+        .badge-agotado {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #a31d31;
+            color: #f5f5dc;
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 5;
         }
 
         .producto-imagen {
@@ -485,13 +536,14 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            position: relative;
         }
 
         .producto-imagen img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s ease, filter 0.3s ease;
         }
 
         .producto-card:hover .producto-imagen img {
@@ -618,6 +670,21 @@
             background: linear-gradient(135deg, #6e1c28 0%, #4a0e17 100%);
             border-color: #6e1c28;
             box-shadow: 0 4px 15px rgba(163, 29, 49, 0.4);
+        }
+
+        /* Deshabilitar botones para producto agotado */
+        .producto-card.agotado .btn-anadir-carrito,
+        .producto-card.agotado .selector-cantidad-previo button,
+        .producto-card.agotado .select-talla {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .producto-card.agotado .btn-anadir-carrito {
+            background: #2a2a2a;
+            border-color: #444;
+            color: #888;
         }
 
         /* ============================== */
@@ -990,6 +1057,11 @@
                             <input type="file" id="nuevaImagen" accept="image/*" required>
                         </div>
                     </div>
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="nuevoAgotado">
+                        <span>Marcar como Agotado</span>
+                    </label>
+                    <br>
                     <button type="submit" class="btn-guardar-producto">
                         <i class="fas fa-save"></i> Guardar Producto
                     </button>
@@ -1029,9 +1101,9 @@
 
         // Productos por defecto de la tienda
         const productosIniciales = [
-            { id: 'p1', titulo: 'Proximamente', precio: 12.00, categoria: 'tops', imagen: 'imagenes/oversize-basica.png' },
-            { id: 'p2', titulo: 'Proximamente', precio: 15.00, categoria: 'tops', imagen: 'imagenes/tank-acidwash.png' },
-            { id: 'p3', titulo: 'Proximamente', precio: 20.00, categoria: 'tops', imagen: 'imagenes/jean-slim-dark.jpg' }
+            { id: 'p1', titulo: 'Proximamente', precio: 12.00, categoria: 'tops', imagen: 'imagenes/oversize-basica.png', agotado: false },
+            { id: 'p2', titulo: 'Proximamente', precio: 15.00, categoria: 'tops', imagen: 'imagenes/tank-acidwash.png', agotado: false },
+            { id: 'p3', titulo: 'Proximamente', precio: 20.00, categoria: 'tops', imagen: 'imagenes/jean-slim-dark.jpg', agotado: false }
         ];
 
         let productos = JSON.parse(localStorage.getItem('velvet_productos')) || productosIniciales;
@@ -1132,12 +1204,22 @@
             productosFiltrados.forEach(prod => {
                 if(!cantPrevias[prod.id]) cantPrevias[prod.id] = 1;
 
+                const esAgotado = prod.agotado ? 'agotado' : '';
+
                 const cardHtml = `
-                    <div class="producto-card" data-id="${prod.id}" data-categoria="${prod.categoria}">
-                        <button class="btn-eliminar-prod-admin" onclick="eliminarProducto('${prod.id}')" title="Eliminar Producto">
-                            <i class="fas fa-trash"></i>
-                        </button>
+                    <div class="producto-card ${esAgotado}" data-id="${prod.id}" data-categoria="${prod.categoria}">
+                        
+                        <div class="admin-acciones-card">
+                            <button class="btn-admin-card btn-toggle-stock-admin" onclick="toggleAgotado('${prod.id}')" title="Cambiar Disponibilidad">
+                                <i class="fas ${prod.agotado ? 'fa-check' : 'fa-ban'}"></i> ${prod.agotado ? 'Disponible' : 'Agotar'}
+                            </button>
+                            <button class="btn-admin-card btn-eliminar-prod-admin" onclick="eliminarProducto('${prod.id}')" title="Eliminar Producto">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+
                         <div class="producto-imagen">
+                            ${prod.agotado ? '<span class="badge-agotado">Agotado</span>' : ''}
                             <img src="${prod.imagen}" alt="${prod.titulo}" onerror="this.src='https://via.placeholder.com/300x350/050001/f5f5dc?text=Velvetby_MD'">
                         </div>
                         <div class="producto-info">
@@ -1146,7 +1228,7 @@
                             
                             <div class="selector-talla-container">
                                 <label for="talla-${prod.id}">Talla:</label>
-                                <select id="talla-${prod.id}" class="select-talla">
+                                <select id="talla-${prod.id}" class="select-talla" ${prod.agotado ? 'disabled' : ''}>
                                     <option value="XS">XS</option>
                                     <option value="S">S</option>
                                     <option value="M" selected>M</option>
@@ -1157,13 +1239,13 @@
 
                             <div class="acciones-producto">
                                 <div class="selector-cantidad-previo">
-                                    <button onclick="modificarContadorPrevio('${prod.id}', -1)">-</button>
+                                    <button onclick="modificarContadorPrevio('${prod.id}', -1)" ${prod.agotado ? 'disabled' : ''}>-</button>
                                     <span class="valor-cantidad" id="cant-previo-${prod.id}">${cantPrevias[prod.id]}</span>
-                                    <button onclick="modificarContadorPrevio('${prod.id}', 1)">+</button>
+                                    <button onclick="modificarContadorPrevio('${prod.id}', 1)" ${prod.agotado ? 'disabled' : ''}>+</button>
                                 </div>
 
-                                <button class="btn-anadir-carrito" onclick="procesarAlCarrito('${prod.id}', '${prod.titulo}', ${prod.precio})">
-                                    <i class="fas fa-plus"></i> Añadir
+                                <button class="btn-anadir-carrito" onclick="procesarAlCarrito('${prod.id}', '${prod.titulo}', ${prod.precio})" ${prod.agotado ? 'disabled' : ''}>
+                                    <i class="fas ${prod.agotado ? 'fa-times' : 'fa-plus'}"></i> ${prod.agotado ? 'Agotado' : 'Añadir'}
                                 </button>
                             </div>
                         </div>
@@ -1198,6 +1280,7 @@
             const nombre = document.getElementById('nuevoNombre').value;
             const precio = parseFloat(document.getElementById('nuevoPrecio').value);
             const categoria = document.getElementById('nuevaCategoria').value;
+            const estaAgotado = document.getElementById('nuevoAgotado').checked;
             const inputFile = document.getElementById('nuevaImagen');
 
             if (inputFile.files && inputFile.files[0]) {
@@ -1211,7 +1294,8 @@
                         titulo: nombre,
                         precio: precio,
                         categoria: categoria,
-                        imagen: imagenBase64
+                        imagen: imagenBase64,
+                        agotado: estaAgotado
                     };
 
                     productos.push(nuevoProd);
@@ -1220,11 +1304,8 @@
                     document.getElementById('formAgregarProducto').reset();
                     alert('¡Producto agregado con éxito!');
 
-                    // Refrescar tienda si estamos en una vista de productos
                     if (tiendaContainer.style.display !== 'none') {
-                        const catActivaBtn = document.querySelector('.btn-categoria.activo');
-                        const catText = catActivaBtn ? catActivaBtn.getAttribute('onclick').match(/'([^']+)'/)[1] : 'todos';
-                        renderProductos(catText);
+                        refrescarVistaProductos();
                     }
                 };
 
@@ -1232,14 +1313,27 @@
             }
         }
 
+        function toggleAgotado(id) {
+            const index = productos.findIndex(p => p.id === id);
+            if (index !== -1) {
+                productos[index].agotado = !productos[index].agotado;
+                localStorage.setItem('velvet_productos', JSON.stringify(productos));
+                refrescarVistaProductos();
+            }
+        }
+
         function eliminarProducto(id) {
             if (confirm('¿Seguro que deseas eliminar este producto del catálogo?')) {
                 productos = productos.filter(p => p.id !== id);
                 localStorage.setItem('velvet_productos', JSON.stringify(productos));
-                const catActivaBtn = document.querySelector('.btn-categoria.activo');
-                const catText = catActivaBtn ? catActivaBtn.getAttribute('onclick').match(/'([^']+)'/)[1] : 'todos';
-                renderProductos(catText);
+                refrescarVistaProductos();
             }
+        }
+
+        function refrescarVistaProductos() {
+            const catActivaBtn = document.querySelector('.btn-categoria.activo');
+            const catText = catActivaBtn ? catActivaBtn.getAttribute('onclick').match(/'([^']+)'/)[1] : 'todos';
+            renderProductos(catText);
         }
 
         function modificarContadorPrevio(id, cambio) {
