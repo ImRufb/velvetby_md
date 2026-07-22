@@ -47,6 +47,103 @@
             text-shadow: 0 2px 15px rgba(110, 28, 40, 0.4);
         }
 
+        /* Botón Modo Admin en Header */
+        .btn-toggle-admin {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #150204;
+            color: #f5f5dc;
+            border: 1px solid #4a0e17;
+            padding: 8px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-toggle-admin:hover {
+            border-color: #a31d31;
+            background: #a31d31;
+        }
+
+        /* ============================== */
+        /* Modal Login Administrador */
+        /* ============================== */
+        .modal-login {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 0, 1, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-login.activo {
+            display: flex;
+        }
+
+        .login-box {
+            background: linear-gradient(135deg, #150204 0%, #050001 100%);
+            border: 2px solid #a31d31;
+            border-radius: 8px;
+            padding: 30px;
+            width: 350px;
+            max-width: 90%;
+            box-shadow: 0 10px 40px rgba(163, 29, 49, 0.4);
+            position: relative;
+        }
+
+        .login-box h3 {
+            color: #f5f5dc;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .btn-cerrar-login {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #d4c5b9;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .login-box .grupo-campo {
+            margin-bottom: 15px;
+        }
+
+        .btn-ingresar-admin {
+            width: 100%;
+            background: linear-gradient(135deg, #a31d31 0%, #6e1c28 100%);
+            color: #f5f5dc;
+            border: 1px solid #a31d31;
+            padding: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ingresar-admin:hover {
+            background: linear-gradient(135deg, #6e1c28 0%, #4a0e17 100%);
+        }
+
         /* ============================== */
         /* Menú Desplegable (Estilo Selector) */
         /* ============================== */
@@ -56,11 +153,10 @@
             position: relative;
         }
 
-        /* Botón disparador del menú */
         .btn-dropdown-trigger {
-            background: #050001; /* Fondo negro puro */
-            color: #f5f5dc; /* Beige */
-            border: 1px solid #4a0e17; /* Borde Vinotinto */
+            background: #050001;
+            color: #f5f5dc;
+            border: 1px solid #4a0e17;
             padding: 14px 20px;
             font-size: 0.9rem;
             font-weight: 700;
@@ -92,7 +188,6 @@
             transform: rotate(180deg);
         }
 
-        /* Lista de opciones desplegables */
         .dropdown-menu {
             position: absolute;
             top: calc(100% + 8px);
@@ -135,13 +230,122 @@
         .btn-categoria:hover {
             background-color: #150204;
             color: #f5f5dc;
-            padding-left: 25px; /* Efecto sutil de desplazamiento */
+            padding-left: 25px;
         }
 
         .btn-categoria.activo {
             background: linear-gradient(135deg, #a31d31 0%, #6e1c28 100%);
             color: #f5f5dc;
             font-weight: 800;
+        }
+
+        /* ============================== */
+        /* Panel Administrador (Agregar Productos) */
+        /* ============================== */
+        .admin-panel-container {
+            background: linear-gradient(135deg, #150204 0%, #050001 100%);
+            border: 2px dashed #a31d31;
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 30px;
+            display: none; /* Oculto por defecto */
+            box-shadow: 0 10px 30px rgba(163, 29, 49, 0.2);
+        }
+
+        .admin-panel-container.activo {
+            display: block;
+        }
+
+        .admin-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .admin-panel-container h2 {
+            font-size: 1.4rem;
+            color: #f5f5dc;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-logout-admin {
+            background: #050001;
+            color: #d4c5b9;
+            border: 1px solid #4a0e17;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-logout-admin:hover {
+            background: #a31d31;
+            color: #fff;
+        }
+
+        .form-admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-admin-grid .grupo-campo {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-admin-grid label {
+            font-size: 0.75rem;
+            color: #d4c5b9;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .form-admin-grid input,
+        .form-admin-grid select {
+            background-color: #050001;
+            border: 1px solid #4a0e17;
+            color: #f5f5dc;
+            padding: 10px;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .form-admin-grid input[type="file"] {
+            padding: 7px;
+            cursor: pointer;
+        }
+
+        .form-admin-grid input:focus,
+        .form-admin-grid select:focus {
+            border-color: #a31d31;
+        }
+
+        .btn-guardar-producto {
+            background: linear-gradient(135deg, #a31d31 0%, #6e1c28 100%);
+            color: #f5f5dc;
+            border: 1px solid #a31d31;
+            padding: 12px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-guardar-producto:hover {
+            background: linear-gradient(135deg, #6e1c28 0%, #4a0e17 100%);
         }
 
         /* ============================== */
@@ -243,12 +447,34 @@
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .producto-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(163, 29, 49, 0.2);
             border-color: #a31d31; 
+        }
+
+        .btn-eliminar-prod-admin {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(163, 29, 49, 0.9);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .admin-panel-container.activo ~ .tienda-container .btn-eliminar-prod-admin {
+            display: flex;
         }
 
         .producto-imagen {
@@ -293,9 +519,6 @@
             margin-bottom: 5px;
         }
 
-        /* ============================== */
-        /* Selectores de Talla y Cantidad */
-        /* ============================== */
         .selector-talla-container {
             display: flex;
             flex-direction: column;
@@ -656,15 +879,16 @@
 <body>
 
     <header>
+        <button class="btn-toggle-admin" onclick="toggleAdminPanel()">
+            <i class="fas fa-lock"></i> Panel Admin
+        </button>
         <h1>Velvetby_MD</h1>
         <div class="categorias-nav-container">
-            <!-- Botón Disparador del Menú Desplegable -->
             <button class="btn-dropdown-trigger" id="btnDropdownTrigger" onclick="toggleDropdown()">
                 <span id="categoriaActivaTexto">Inicio</span>
                 <i class="fas fa-chevron-down"></i>
             </button>
             
-            <!-- Lista Desplegable con las Categorías -->
             <nav class="dropdown-menu" id="dropdownMenu">
                 <button class="btn-categoria activo" onclick="filtrar('inicio', event)">Inicio</button>
                 <button class="btn-categoria" onclick="filtrar('todos', event)">Todos los productos</button>
@@ -675,6 +899,25 @@
             </nav>
         </div>
     </header>
+
+    <!-- Modal de Login Administrador -->
+    <div class="modal-login" id="modalLogin">
+        <div class="login-box">
+            <button class="btn-cerrar-login" onclick="cerrarModalLogin()">&times;</button>
+            <h3>Acceso Admin</h3>
+            <form onsubmit="autenticarAdmin(event)">
+                <div class="grupo-campo">
+                    <label for="userAdmin">Usuario</label>
+                    <input type="text" id="userAdmin" placeholder="admin" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="passAdmin">Contraseña</label>
+                    <input type="password" id="passAdmin" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-ingresar-admin">Ingresar</button>
+            </form>
+        </div>
+    </div>
 
     <button class="btn-carrito-flotante" onclick="togglePanelCarrito(true)">
         <i class="fas fa-shopping-cart"></i>
@@ -717,6 +960,43 @@
     <div class="layout-principal">
         <div class="contenido-izquierdo">
             
+            <!-- Panel Administrador -->
+            <section class="admin-panel-container" id="adminPanel">
+                <div class="admin-header-flex">
+                    <h2><i class="fas fa-plus-circle"></i> Panel Administrador</h2>
+                    <button class="btn-logout-admin" onclick="cerrarSesionAdmin()"><i class="fas fa-sign-out-alt"></i> Salir</button>
+                </div>
+                <form id="formAgregarProducto" onsubmit="agregarProducto(event)">
+                    <div class="form-admin-grid">
+                        <div class="grupo-campo">
+                            <label for="nuevoNombre">Nombre del Producto</label>
+                            <input type="text" id="nuevoNombre" placeholder="Ej: Vestido Velvet Silk" required>
+                        </div>
+                        <div class="grupo-campo">
+                            <label for="nuevoPrecio">Precio ($)</label>
+                            <input type="number" step="0.01" id="nuevoPrecio" placeholder="15.00" required>
+                        </div>
+                        <div class="grupo-campo">
+                            <label for="nuevaCategoria">Categoría</label>
+                            <select id="nuevaCategoria" required>
+                                <option value="vestidos">Vestidos</option>
+                                <option value="tops">Tops</option>
+                                <option value="accesorios">Accesorios</option>
+                                <option value="sets">Sets</option>
+                            </select>
+                        </div>
+                        <div class="grupo-campo">
+                            <label for="nuevaImagen">Subir Imagen</label>
+                            <input type="file" id="nuevaImagen" accept="image/*" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-guardar-producto">
+                        <i class="fas fa-save"></i> Guardar Producto
+                    </button>
+                </form>
+            </section>
+
+            <!-- Información Principal (Inicio) -->
             <section class="info-principal-container" id="infoPrincipal">
                 <h2>Bienvenidos a Velvetby_MD</h2>
                 <p>¿Quiénes somos? Somos Velvetby_MD, una tienda de moda virtual donde la elegancia contemporánea se encuentra con la autenticidad. Nos enfocamos en redefinir el estilo clásico, ofreciendo piezas únicas con una estética curada y pulida que te permiten proyectar tu seguridad sin decir una sola palabra. Creemos que vestir bien es una forma de arte y una extensión de tu esencia; por eso, nos alejamos de lo masivo para crear prendas con carácter, líneas limpias y ese toque aesthetic que eleva cualquier ocasión. En Velvetby_MD, no seguimos modas pasajeras: diseñamos el fondo de armario con el que creas tu propio legado de estilo.</p>
@@ -733,114 +1013,8 @@
                 </div>
             </section>
 
-            <!-- CONTENEDOR TIENDA -->
-            <main class="tienda-container" id="tiendaContainer">
-                
-                <!-- Producto 1 (Tops) -->
-                <div class="producto-card" data-id="p1" data-categoria="tops">
-                    <div class="producto-imagen">
-                        <img src="imagenes/oversize-basica.png" alt="Proximamente">
-                    </div>
-                    <div class="producto-info">
-                        <p class="producto-titulo">Proximamente</p>
-                        <p class="producto-precio">$12.00</p>
-                        
-                        <div class="selector-talla-container">
-                            <label for="talla-p1">Talla:</label>
-                            <select id="talla-p1" class="select-talla">
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M" selected>M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                            </select>
-                        </div>
-
-                        <div class="acciones-producto">
-                            <div class="selector-cantidad-previo">
-                                <button onclick="modificarContadorPrevio('p1', -1)">-</button>
-                                <span class="valor-cantidad" id="cant-previo-p1">1</span>
-                                <button onclick="modificarContadorPrevio('p1', 1)">+</button>
-                            </div>
-
-                            <button class="btn-anadir-carrito" onclick="procesarAlCarrito('p1', 'Proximamente', 12.00)">
-                                <i class="fas fa-plus"></i> Añadir
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-
-                <!-- Producto 2 (Tops) -->
-                <div class="producto-card" data-id="p2" data-categoria="tops">
-                    <div class="producto-imagen">
-                        <img src="imagenes/tank-acidwash.png" alt="Proximamente">
-                    </div>
-                    <div class="producto-info">
-                        <p class="producto-titulo">Proximamente</p>
-                        <p class="producto-precio">$15.00</p>
-                        
-                        <div class="selector-talla-container">
-                            <label for="talla-p2">Talla:</label>
-                            <select id="talla-p2" class="select-talla">
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M" selected>M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                            </select>
-                        </div>
-
-                        <div class="acciones-producto">
-                            <div class="selector-cantidad-previo">
-                                <button onclick="modificarContadorPrevio('p2', -1)">-</button>
-                                <span class="valor-cantidad" id="cant-previo-p2">1</span>
-                                <button onclick="modificarContadorPrevio('p2', 1)">+</button>
-                            </div>
-
-                            <button class="btn-anadir-carrito" onclick="procesarAlCarrito('p2', 'Proximamente', 15.00)">
-                                <i class="fas fa-plus"></i> Añadir
-                            </button>
-                        </div>
-                    </div>
-                </div>        
-                
-
-                <!-- Producto 3 (Tops) -->
-                <div class="producto-card" data-id="p3" data-categoria="tops">
-                    <div class="producto-imagen">
-                        <img src="imagenes/jean-slim-dark.jpg" alt="Proximamente">
-                    </div>
-                    <div class="producto-info">
-                        <p class="producto-titulo">Proximamente</p>
-                        <p class="producto-precio">$20.00</p>
-                        
-                        <div class="selector-talla-container">
-                            <label for="talla-p3">Talla:</label>
-                            <select id="talla-p3" class="select-talla">
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M" selected>M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                            </select>
-                        </div>
-
-                        <div class="acciones-producto">
-                            <div class="selector-cantidad-previo">
-                                <button onclick="modificarContadorPrevio('p3', -1)">-</button>
-                                <span class="valor-cantidad" id="cant-previo-p3">1</span>
-                                <button onclick="modificarContadorPrevio('p3', 1)">+</button>
-                            </div>
-
-                            <button class="btn-anadir-carrito" onclick="procesarAlCarrito('p3', 'Proximamente', 20.00)">
-                                <i class="fas fa-plus"></i> Añadir
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </main>
+            <!-- CONTENEDOR TIENDA (Dinámico) -->
+            <main class="tienda-container" id="tiendaContainer"></main>
         </div>
     </div>
 
@@ -849,14 +1023,28 @@
     </footer>
 
     <script>
-        let carrito = [];
-        
+        // Credenciales Admin
+        const USUARIO_CORRECTO = "admin";
+        const PASS_CORRECTO = "velvet2026";
+
+        // Productos por defecto de la tienda
+        const productosIniciales = [
+            { id: 'p1', titulo: 'Proximamente', precio: 12.00, categoria: 'tops', imagen: 'imagenes/oversize-basica.png' },
+            { id: 'p2', titulo: 'Proximamente', precio: 15.00, categoria: 'tops', imagen: 'imagenes/tank-acidwash.png' },
+            { id: 'p3', titulo: 'Proximamente', precio: 20.00, categoria: 'tops', imagen: 'imagenes/jean-slim-dark.jpg' }
+        ];
+
+        let productos = JSON.parse(localStorage.getItem('velvet_productos')) || productosIniciales;
+        let carrito = JSON.parse(localStorage.getItem('velvet_carrito')) || [];
+        let cantPrevias = {};
+
         const infoPrincipal = document.getElementById('infoPrincipal');
         const tiendaContainer = document.getElementById('tiendaContainer');
         const panelCarrito = document.getElementById('panelCarrito');
         const overlayFondo = document.getElementById('overlayFondo');
-        
-        // Elementos del Dropdown
+        const adminPanel = document.getElementById('adminPanel');
+        const modalLogin = document.getElementById('modalLogin');
+
         const btnDropdownTrigger = document.getElementById('btnDropdownTrigger');
         const dropdownMenu = document.getElementById('dropdownMenu');
         const categoriaActivaTexto = document.getElementById('categoriaActivaTexto');
@@ -868,9 +1056,14 @@
             if(localStorage.getItem('cedulaUsuario')) {
                 document.getElementById('checkCedula').value = localStorage.getItem('cedulaUsuario');
             }
+            actualizarCarritoHTML();
+
+            // Si la sesión ya estaba iniciada
+            if(sessionStorage.getItem('adminAutenticado') === 'true') {
+                adminPanel.classList.add('activo');
+            }
         });
 
-        // Cerrar el menú desplegable si se hace clic fuera de él
         window.addEventListener('click', (e) => {
             if (!btnDropdownTrigger.contains(e.target) && !dropdownMenu.contains(e.target)) {
                 btnDropdownTrigger.classList.remove('abierto');
@@ -883,6 +1076,42 @@
             dropdownMenu.classList.toggle('visible');
         }
 
+        /* --- LÓGICA LOGIN ADMIN --- */
+        function toggleAdminPanel() {
+            if (sessionStorage.getItem('adminAutenticado') === 'true') {
+                adminPanel.classList.toggle('activo');
+            } else {
+                modalLogin.classList.add('activo');
+            }
+        }
+
+        function cerrarModalLogin() {
+            modalLogin.classList.remove('activo');
+        }
+
+        function autenticarAdmin(e) {
+            e.preventDefault();
+            const userInput = document.getElementById('userAdmin').value.trim();
+            const passInput = document.getElementById('passAdmin').value.trim();
+
+            if (userInput === USUARIO_CORRECTO && passInput === PASS_CORRECTO) {
+                sessionStorage.setItem('adminAutenticado', 'true');
+                modalLogin.classList.remove('activo');
+                adminPanel.classList.add('activo');
+                document.getElementById('userAdmin').value = '';
+                document.getElementById('passAdmin').value = '';
+                alert('¡Acceso concedido!');
+            } else {
+                alert('Usuario o contraseña incorrectos.');
+            }
+        }
+
+        function cerrarSesionAdmin() {
+            sessionStorage.removeItem('adminAutenticado');
+            adminPanel.classList.remove('activo');
+            alert('Sesión de administrador cerrada.');
+        }
+
         function togglePanelCarrito(abrir) {
             if (abrir) {
                 panelCarrito.classList.add('abierto');
@@ -893,18 +1122,64 @@
             }
         }
 
+        function renderProductos(categoriaFiltro) {
+            tiendaContainer.innerHTML = '';
+
+            const productosFiltrados = (categoriaFiltro === 'todos') 
+                ? productos 
+                : productos.filter(p => p.categoria === categoriaFiltro);
+
+            productosFiltrados.forEach(prod => {
+                if(!cantPrevias[prod.id]) cantPrevias[prod.id] = 1;
+
+                const cardHtml = `
+                    <div class="producto-card" data-id="${prod.id}" data-categoria="${prod.categoria}">
+                        <button class="btn-eliminar-prod-admin" onclick="eliminarProducto('${prod.id}')" title="Eliminar Producto">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <div class="producto-imagen">
+                            <img src="${prod.imagen}" alt="${prod.titulo}" onerror="this.src='https://via.placeholder.com/300x350/050001/f5f5dc?text=Velvetby_MD'">
+                        </div>
+                        <div class="producto-info">
+                            <p class="producto-titulo">${prod.titulo}</p>
+                            <p class="producto-precio">$${prod.precio.toFixed(2)}</p>
+                            
+                            <div class="selector-talla-container">
+                                <label for="talla-${prod.id}">Talla:</label>
+                                <select id="talla-${prod.id}" class="select-talla">
+                                    <option value="XS">XS</option>
+                                    <option value="S">S</option>
+                                    <option value="M" selected>M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                </select>
+                            </div>
+
+                            <div class="acciones-producto">
+                                <div class="selector-cantidad-previo">
+                                    <button onclick="modificarContadorPrevio('${prod.id}', -1)">-</button>
+                                    <span class="valor-cantidad" id="cant-previo-${prod.id}">${cantPrevias[prod.id]}</span>
+                                    <button onclick="modificarContadorPrevio('${prod.id}', 1)">+</button>
+                                </div>
+
+                                <button class="btn-anadir-carrito" onclick="procesarAlCarrito('${prod.id}', '${prod.titulo}', ${prod.precio})">
+                                    <i class="fas fa-plus"></i> Añadir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                tiendaContainer.insertAdjacentHTML('beforeend', cardHtml);
+            });
+        }
+
         function filtrar(categoria, event) {
-            // Actualizar clase activa en las opciones del dropdown
-            const botones = document.querySelectorAll('.btn-categoria');
-            botones.forEach(btn => btn.classList.remove('activo'));
-            
-            if (event) {
-                event.currentTarget.classList.add('activo');
-                // Actualizar el texto del botón principal con el nombre seleccionado
-                categoriaActivaTexto.textContent = event.currentTarget.textContent;
+            document.querySelectorAll('.btn-categoria').forEach(btn => btn.classList.remove('activo'));
+            if (event && event.target) {
+                event.target.classList.add('activo');
+                categoriaActivaTexto.textContent = event.target.textContent;
             }
-            
-            // Cerrar menú
+
             btnDropdownTrigger.classList.remove('abierto');
             dropdownMenu.classList.remove('visible');
 
@@ -914,145 +1189,172 @@
             } else {
                 infoPrincipal.style.display = 'none';
                 tiendaContainer.style.display = 'grid';
+                renderProductos(categoria);
+            }
+        }
+
+        function agregarProducto(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nuevoNombre').value;
+            const precio = parseFloat(document.getElementById('nuevoPrecio').value);
+            const categoria = document.getElementById('nuevaCategoria').value;
+            const inputFile = document.getElementById('nuevaImagen');
+
+            if (inputFile.files && inputFile.files[0]) {
+                const reader = new FileReader();
                 
-                const productos = document.querySelectorAll('.producto-card');
-                productos.forEach(p => {
-                    const cat = p.getAttribute('data-categoria');
-                    p.style.display = (categoria === 'todos' || cat === categoria) ? 'flex' : 'none';
-                });
+                reader.onload = function(evt) {
+                    const imagenBase64 = evt.target.result;
+
+                    const nuevoProd = {
+                        id: 'p_' + Date.now(),
+                        titulo: nombre,
+                        precio: precio,
+                        categoria: categoria,
+                        imagen: imagenBase64
+                    };
+
+                    productos.push(nuevoProd);
+                    localStorage.setItem('velvet_productos', JSON.stringify(productos));
+
+                    document.getElementById('formAgregarProducto').reset();
+                    alert('¡Producto agregado con éxito!');
+
+                    // Refrescar tienda si estamos en una vista de productos
+                    if (tiendaContainer.style.display !== 'none') {
+                        const catActivaBtn = document.querySelector('.btn-categoria.activo');
+                        const catText = catActivaBtn ? catActivaBtn.getAttribute('onclick').match(/'([^']+)'/)[1] : 'todos';
+                        renderProductos(catText);
+                    }
+                };
+
+                reader.readAsDataURL(inputFile.files[0]);
+            }
+        }
+
+        function eliminarProducto(id) {
+            if (confirm('¿Seguro que deseas eliminar este producto del catálogo?')) {
+                productos = productos.filter(p => p.id !== id);
+                localStorage.setItem('velvet_productos', JSON.stringify(productos));
+                const catActivaBtn = document.querySelector('.btn-categoria.activo');
+                const catText = catActivaBtn ? catActivaBtn.getAttribute('onclick').match(/'([^']+)'/)[1] : 'todos';
+                renderProductos(catText);
             }
         }
 
         function modificarContadorPrevio(id, cambio) {
-            const txtCant = document.getElementById(`cant-previo-${id}`);
-            if (!txtCant) return;
-
-            let cantidadActual = parseInt(txtCant.textContent);
-            cantidadActual += cambio;
-
-            if (cantidadActual < 1) cantidadActual = 1;
-            txtCant.textContent = cantidadActual;
+            if (!cantPrevias[id]) cantPrevias[id] = 1;
+            cantPrevias[id] = Math.max(1, cantPrevias[id] + cambio);
+            document.getElementById(`cant-previo-${id}`).textContent = cantPrevias[id];
         }
 
-        function procesarAlCarrito(id, ExtNombre, precio) {
-            const txtCant = document.getElementById(`cant-previo-${id}`);
-            const selectTalla = document.getElementById(`talla-${id}`);
-            
-            const unidadesAAnadir = txtCant ? parseInt(txtCant.textContent) : 1;
-            const tallaSeleccionada = selectTalla ? selectTalla.value : 'M';
+        function procesarAlCarrito(id, titulo, precio) {
+            const tallaSelect = document.getElementById(`talla-${id}`);
+            const talla = tallaSelect ? tallaSelect.value : 'M';
+            const cantidad = cantPrevias[id] || 1;
 
-            const itemExistente = carrito.find(item => item.id === id && item.talla === tallaSeleccionada);
-
-            if (itemExistente) {
-                itemExistente.cantidad += unidadesAAnadir;
+            const idx = carrito.findIndex(item => item.id === id && item.talla === talla);
+            if (idx > -1) {
+                carrito[idx].cantidad += cantidad;
             } else {
-                carrito.push({ 
-                    id: id, 
-                    nombre: ExtNombre, 
-                    precio: precio, 
-                    cantidad: unidadesAAnadir,
-                    talla: tallaSeleccionada 
-                });
+                carrito.push({ id, titulo, precio, talla, cantidad });
             }
 
-            if(txtCant) txtCant.textContent = 1;
+            cantPrevias[id] = 1;
+            if(document.getElementById(`cant-previo-${id}`)) {
+                document.getElementById(`cant-previo-${id}`).textContent = 1;
+            }
 
-            actualizarInterfazCarrito();
+            actualizarCarritoHTML();
             togglePanelCarrito(true);
         }
 
-        function eliminarDelCarrito(id, talla) {
-            carrito = carrito.filter(item => !(item.id === id && item.talla === talla));
-            actualizarInterfazCarrito();
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            actualizarCarritoHTML();
         }
 
-        function actualizarInterfazCarrito() {
-            const listaCarrito = document.getElementById('listaCarrito');
+        function actualizarCarritoHTML() {
+            localStorage.setItem('velvet_carrito', JSON.stringify(carrito));
+            const lista = document.getElementById('listaCarrito');
             const totalMonto = document.getElementById('totalMonto');
-            const contadorCarrito = document.getElementById('contadorCarrito');
-            
-            listaCarrito.innerHTML = "";
-
-            let totalUnidades = carrito.reduce((acum, item) => acum + item.cantidad, 0);
-            contadorCarrito.textContent = totalUnidades;
+            const contador = document.getElementById('contadorCarrito');
 
             if (carrito.length === 0) {
-                listaCarrito.innerHTML = `<p class="carrito-vacio-txt">Tu carrito está vacío.</p>`;
-                totalMonto.textContent = "$0.00";
+                lista.innerHTML = '<p class="carrito-vacio-txt">Tu carrito está vacío.</p>';
+                totalMonto.textContent = '$0.00';
+                contador.textContent = '0';
                 return;
             }
 
-            let totalAcumulado = 0;
+            lista.innerHTML = '';
+            let total = 0;
+            let totalCant = 0;
 
-            carrito.forEach(item => {
+            carrito.forEach((item, index) => {
                 const subtotal = item.precio * item.cantidad;
-                totalAcumulado += subtotal;
+                total += subtotal;
+                totalCant += item.cantidad;
 
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'item-carrito';
-                itemDiv.innerHTML = `
-                    <div class="item-carrito-info">
-                        <span style="font-weight: 700; color: #f5f5dc;">${item.nombre}</span>
-                        <span class="item-carrito-talla">Talla: ${item.talla}</span>
-                        <span style="color: #d4c5b9;">${item.cantidad}x - $${item.precio.toFixed(2)}</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <span style="font-weight: 700; color: #f5f5dc;">$${subtotal.toFixed(2)}</span>
-                        <button class="btn-eliminar-item" onclick="eliminarDelCarrito('${item.id}', '${item.talla}')">
+                const itemHtml = `
+                    <div class="item-carrito">
+                        <div class="item-carrito-info">
+                            <strong>${item.titulo}</strong>
+                            <span class="item-carrito-talla">Talla: ${item.talla} | Cant: ${item.cantidad}</span>
+                            <span>$${subtotal.toFixed(2)}</span>
+                        </div>
+                        <button class="btn-eliminar-item" onclick="eliminarDelCarrito(${index})">
                             <i class="fas fa-trash-alt"></i>
                         </button>
                     </div>
                 `;
-                listaCarrito.appendChild(itemDiv);
+                lista.insertAdjacentHTML('beforeend', itemHtml);
             });
 
-            totalMonto.textContent = `$${totalAcumulado.toFixed(2)}`;
+            totalMonto.textContent = `$${total.toFixed(2)}`;
+            contador.textContent = totalCant;
         }
 
         function enviarCarritoWhatsApp() {
+            if (carrito.length === 0) {
+                alert('El carrito está vacío');
+                return;
+            }
+
             const nombre = document.getElementById('checkNombre').value.trim();
             const cedula = document.getElementById('checkCedula').value.trim();
 
             if (!nombre || !cedula) {
-                alert("Por favor, rellena tu Nombre y Cédula para procesar el pedido.");
-                return;
-            }
-
-            if (carrito.length === 0) {
-                alert("Tu carrito está vacío.");
+                alert('Por favor ingresa tu Nombre y Cédula');
                 return;
             }
 
             localStorage.setItem('nombreUsuario', nombre);
             localStorage.setItem('cedulaUsuario', cedula);
 
-            let mensaje = `*🔥 NUEVO PEDIDO - Velvetby_MD 🔥*\n\n`;
-            mensaje += `👤 *Cliente:* ${nombre}\n`;
-            mensaje += `🪪 *Cédula:* ${cedula}\n`;
-            mensaje += `---------------------------------------\n\n`;
+            let mensaje = `*NUEVO PEDIDO VELVETBY_MD*\n`;
+            mensaje += `*Cliente:* ${nombre}\n`;
+            mensaje += `*Cédula:* ${cedula}\n\n`;
+            mensaje += `*PRODUCTOS:*\n`;
 
             let total = 0;
-            carrito.forEach(item => {
-                const subtotal = item.precio * item.cantidad;
-                total += subtotal;
-                mensaje += `📦 *${item.nombre}*\n`;
-                mensaje += `   • Talla: ${item.talla}\n`;
-                mensaje += `   • Cantidad: ${item.cantidad}\n`;
-                mensaje += `   • Subtotal: $${subtotal.toFixed(2)}\n\n`;
+            carrito.forEach((item, i) => {
+                const sub = item.precio * item.cantidad;
+                total += sub;
+                mensaje += `${i + 1}. ${item.titulo} (Talla: ${item.talla}) x${item.cantidad} - $${sub.toFixed(2)}\n`;
             });
 
-            mensaje += `---------------------------------------\n`;
-            mensaje += `💰 *TOTAL A PAGAR:* $${total.toFixed(2)}\n\n`;
-            mensaje += `💬 _¡Quedo atento a los datos de pago para procesar mi orden!_`;
+            mensaje += `\n*TOTAL A PAGAR:* $${total.toFixed(2)}`;
 
-            const mensajeCodificado = encodeURIComponent(mensaje);
-            const numeroWhatsApp = "584124785579"; 
+            const url = `https://wa.me/584124785579?text=${encodeURIComponent(mensaje)}`;
             
-            window.open(`https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`, '_blank');
-
+            // Vaciar el carrito
             carrito = [];
-            actualizarInterfazCarrito();
+            actualizarCarritoHTML();
             togglePanelCarrito(false);
+
+            // Abrir WhatsApp en una nueva pestaña
+            window.open(url, '_blank');
         }
     </script>
 </body>
